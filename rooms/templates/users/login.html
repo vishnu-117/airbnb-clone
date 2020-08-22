@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+LogIn
+{% endblock %}
+
+{% block search_bar %}
+{% endblock search_bar %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <div class="container my-4 md-w-50 d-flex flex-column text-center border border-gray w-25">
+            {% include "partials/github_login.html" %}
+            <div class="d-flex w-100">
+                <div class="w-100 bg-grey align-items-center">
+                    <hr>
+                </div>
+                <span class="align-items-center mx-2 mt-1">or</span>
+                <div class="w-100 bg-grey align-items-center">
+                    <hr>
+                </div>
+            </div>
+            <form action="{% url 'users:login' %}" method="POST" class="w-100 ml-0">
+                <!-- {{ form.as_p }} -->
+                {% csrf_token s%}
+                <input type="email" placeholder="Email" class="form-control mb-2">
+                <input type="password" placeholder="Password" class="form-control mb-2">
+                <button class="btn btn-success w-100">Login</button>
+            </form>
+            <div class="my-2">
+                <span>Don't have account</span><a href="{% url 'users:signup' %}"> Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

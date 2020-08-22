@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_title %}
+Search
+{% endblock %}
+
+{% block search_bar %}
+{% endblock search_bar %}
+
+{% block content %}
+<h1>Search!</h1>
+<form method="GET" action="{% url 'rooms:search' %}">
+    {{ form.as_p }}
+    <button>Submit</button>
+</form>
+<h3>Result</h3>
+{% for room in rooms %}
+<h3>{{ room.name }}</h3>
+{% endfor %}
+{% endblock content %}

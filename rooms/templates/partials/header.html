@@ -1,0 +1,9 @@
+{% load static %}
+<ul class="d-flex align-items-center text-sm font-weight-bold list-inline">
+    {% if user.is_authenticated %}
+    <li class="ml-4"><a href="{% url 'users:logout' %}">Log Out</a></li>
+    {% else %}
+    <li class="ml-4"><a href="{% url 'users:login' %}">Log In</a></li>
+    <li class="ml-4"><a href="{% url 'users:signup' %}">Signup </a></li>
+    {% endif %}
+</ul>

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_title %}Detail{% endblock page_title %}
+
+{% block content %}
+<div>
+    <h1>
+        {{ room.name }}
+    </h1>
+    <h3>
+        {{ room.description }}
+        {{ room.country }}
+    </h3>
+</div>
+<div>
+    <h2>
+        By: {{ room.host.username }}
+        {% if room.host.superhot %}
+        (superhot)
+        {% endif %}
+    </h2>
+    <h3>Amenities</h3>
+    <ul>
+        {% for aminity in room.aminities.all %}
+        <li>{{aminity}}</li>
+        {% endfor %}
+    </ul>
+    <h3>Facility</h3>
+    <ul>
+        {% for facility in room.facility.all %}
+        <li>{{aminity}}</li>
+        {% endfor %}
+    </ul>
+    <h3>House Rules</h3>
+    <ul>
+        {% for house_rule in room.house_rules.all %}
+        <li>{{house_rule}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

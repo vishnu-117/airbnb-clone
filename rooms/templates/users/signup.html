@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+SignUp
+{% endblock %}
+
+{% block search_bar %}
+{% endblock search_bar %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="container my-4 md-w-50 d-flex flex-column text-center border border-gray w-25">
+            {% include "partials/github_login.html" %}
+            <div class="d-flex w-100">
+                <div class="w-100 bg-grey align-items-center">
+                    <hr>
+                </div>
+                <span class="align-items-center mx-2 mt-1">or</span>
+                <div class="w-100 bg-grey align-items-center">
+                    <hr>
+                </div>
+            </div>
+            <form action="{% url 'users:signup' %}" method="POST">
+                {{ form.as_p }}
+                <!-- {{ form.email }}
+                {{ form.password1 }}
+                {{ form.password2 }} -->
+                <!-- <input type="email" placeholder="Email" class="form-control mb-2">
+                <input type="password" placeholder="Password" class="form-control mb-2">
+                <input type="password" placeholder="Confirm Password" class="form-control mb-2"> -->
+                {% csrf_token s%}
+                <button class="btn btn-success w-100 mb-2">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
